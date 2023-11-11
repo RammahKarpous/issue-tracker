@@ -1,9 +1,13 @@
+"use client";
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 
 import { HiBugAnt } from 'react-icons/hi2'
 
 const Navigation = () => {
+    const pathname = usePathname()
 
     const links = [
         { name: 'Dashboard', href: '/' },
@@ -18,7 +22,7 @@ const Navigation = () => {
                 { links.map( link => 
                     <li key={link.href}>
                         <Link 
-                            className='p-4 text-zinc-500 hover:text-zinc-800 inline-block transition-colors' 
+                            className={`p-4 ${pathname === link.href ? 'text-zinc-900' : 'text-zinc-500'}  hover:text-zinc-800 inline-block transition-colors`} 
                             href={link.href}>{link.name}
                         </Link>
                     </li> 
