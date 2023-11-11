@@ -1,5 +1,14 @@
+// Import next components
 import type { Metadata } from 'next'
+
+// Import styles
 import './globals.css'
+import '@radix-ui/themes/styles.css'
+
+// Import third party components
+import { Theme } from '@radix-ui/themes'
+
+// Import components
 import Navigation from '@/components/Navigation'
 
 export const metadata: Metadata = {
@@ -15,11 +24,13 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				<Navigation />
-				
-				<main>
-					{children}
-				</main>
+				<Theme>
+					<Navigation />
+
+					<main>
+						{children}
+					</main>
+				</Theme>
 			</body>
 		</html>
 	)
