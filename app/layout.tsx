@@ -9,8 +9,6 @@ import './globals.css'
 
 // Import third party components
 import { Theme } from '@radix-ui/themes'
-import SimpleMDE from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
 
 // Import components
 import Navigation from '@/components/Navigation'
