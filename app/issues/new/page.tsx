@@ -15,6 +15,7 @@ import "easymde/dist/easymde.min.css";
 // Import utilities
 import { issueSchema } from '@/utils/validationSchema';
 import { z } from 'zod';
+import ErrorMessage from '@/components/ErrorMessage';
 
 type IssueForm = z.infer<typeof issueSchema>
 
@@ -39,7 +40,7 @@ const NewIssue = () => {
             <TextField.Root>
                 <TextField.Input placeholder="Issue title" {...register('title')} />
             </TextField.Root>
-            {errors.title && <Text color="red" as='p'>{errors.title.message}</Text>}
+            <ErrorMessage>{errors.title?.message}</ErrorMessage>
 
             <Controller
                 name="description"
@@ -48,7 +49,7 @@ const NewIssue = () => {
                     <SimpleMDE {...field} placeholder='Issue description' />
                 )}
             />
-            {errors.description && <Text color="red" as='p'>{errors.description.message}</Text>}
+            <ErrorMessage>{errors.description?.message}</ErrorMessage>
 
             {error && (
                 <Callout.Root color="red">
